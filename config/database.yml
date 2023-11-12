@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: kennel_mate_project_production
-  username: kennel_mate_project
-  password: <%= ENV["KENNEL_MATE_PROJECT_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
