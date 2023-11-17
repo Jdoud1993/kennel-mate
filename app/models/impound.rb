@@ -1,0 +1,2 @@
+class Impound < ApplicationRecord
+end

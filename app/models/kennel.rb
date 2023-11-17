@@ -1,0 +1,2 @@
+class Kennel < ApplicationRecord
+end
