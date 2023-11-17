@@ -11,7 +11,7 @@ function NavBar () {
         
         <Navbar bg="dark" data-bs-theme="dark" fixed="top">
             <Container>
-                <LinkContainer to="/home">
+                <LinkContainer to="/">
                     <Navbar.Brand>Kennel Mate 2.0</Navbar.Brand>
                 </LinkContainer>
                 <Nav className="me-auto">
