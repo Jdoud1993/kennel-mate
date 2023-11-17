@@ -1,23 +1,26 @@
-import logo from '../logo.svg';
-import '../App.css';
+import {Routes, Route} from "react-router-dom"
+import Home from "./Home"
+import Animals from "./Animals";
+import Clients from "./Clients";
+import Impound from "./Impound";
+import VirtualKennel from "./VirtualKennel";
+import NavBar from "./Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar />
+      
+      <div id="main">
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/animals" element={<Animals />} />
+          <Route path="/clients" element={<Clients />} />
+          <Route path="/impound" element={<Impound />} />
+          <Route path="/virtual-kennel" element={<VirtualKennel />} />
+        </Routes>
+      </div>
+
     </div>
   );
 }
