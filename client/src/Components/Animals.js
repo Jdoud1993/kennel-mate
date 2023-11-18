@@ -1,8 +1,12 @@
+import AnimalForm from "./AnimalForm"
 
 
 function Animals () {
     return(
-        <h1>Animals</h1>
+        <div id="animals">
+            <h1>Animals</h1>
+            <AnimalForm />
+        </div>
     )
 }
 

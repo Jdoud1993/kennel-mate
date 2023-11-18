@@ -64,6 +64,9 @@ function Login({onLogin}) {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" />
+          <Form.Text id="passwordHelpBlock" muted>
+        Your password must be 6-20 characters long.
+      </Form.Text>
         </Form.Group>
         <Button style={{ margin: "5px" }} variant="secondary" type="submit" name="login" onClick={() => setButton(1)}>
           {isLoading ? "Loading..." : "Login"}
