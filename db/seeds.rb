@@ -1,10 +1,10 @@
 puts "Seeding...."
 
-User.create(
-    user_name: "jdoud1993",
-    password: "Steelers3"
-)
-puts "Seeding....User Completed"
+# User.create(
+#     user_name: "jdoud1993",
+#     password: "Steelers3"
+# )
+# puts "Seeding....User Completed"
 
 Animal.create(
     name: "Uknown",
