@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  # route to test your configuration
+  
+  resources :animals, only: [:index, :show, :create, :destroy, :update]
+
   post "/signup", to: "users#create"
 
   post "/login", to: "sessions#create"
