@@ -13,6 +13,7 @@ export const userContext = createContext(null)
 function App() {
 
   const [user, setUser] = useState(null)
+  const [animals, setAnimals] = useState([])
 
   useEffect(()=>{
     fetch("/authorize")
@@ -21,6 +22,14 @@ function App() {
             r.json().then(user => setUser(user))
         }
     })
+}, [])
+
+useEffect(() => {
+  fetch("/animals")
+  .then(res => res.json())
+  .then(data => {
+      setAnimals(data)
+  })
 }, [])
   
 if (!user) return <Login onLogin={setUser} />
@@ -31,7 +40,7 @@ if (!user) return <Login onLogin={setUser} />
       <div id="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/animals" element={<Animals />} />
+          <Route path="/animals" element={<Animals animals={animals} />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/impound" element={<Impound />} />
           <Route path="/virtual-kennel" element={<VirtualKennel />} />

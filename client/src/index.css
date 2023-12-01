@@ -11,8 +11,8 @@ html {
 
 body {
   display: flex;
-  justify-content: center;
   min-height: 100%;
+  justify-content: center;
   padding: 0;
   margin:0;
 }
@@ -21,4 +21,8 @@ body {
   color: white;
 }
 
+#animal_line {
+  display: flex;
+  justify-content: space-between;
+}
 

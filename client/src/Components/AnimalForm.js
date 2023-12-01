@@ -13,7 +13,7 @@ function AnimalForm() {
         age:"",
         primary_color:"",
         secondary_color:"",
-        image:{}
+        image:""
 
     })
 

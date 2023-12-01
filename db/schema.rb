@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_17_193836) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_01_190308) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_17_193836) do
     t.string "age"
     t.string "color_primary"
     t.string "color_secondary"
-    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
