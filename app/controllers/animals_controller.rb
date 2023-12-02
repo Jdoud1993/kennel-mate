@@ -2,7 +2,18 @@ class AnimalsController < ApplicationController
     skip_before_action :authorized, only: :index
 
     def index 
-        render json: Animal.all
+        @animals = Animal.all
+
+        animals_with_images = @animals.map do |animal|
+            if animal.image.attached?
+                animal.as_json.merge(image: url_for(animal.image))
+            else
+                animal.as_json.merge(image: nil)
+            end
+        end
+
+        render json: animals_with_images
+
     end
 
     def show

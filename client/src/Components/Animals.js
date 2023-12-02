@@ -2,7 +2,7 @@ import AnimalForm from "./AnimalForm"
 import AnimalLine from "./AnimalLine"
 
 
-function Animals ({animals}) {
+function Animals ({animals, onAddAnimal}) {
 
     const animalList = animals.map((animal) => <AnimalLine key={animal.id} animal={animal}/>)
     console.log(animals)
@@ -10,7 +10,7 @@ function Animals ({animals}) {
     return(
         <div id="animals">
             <h1>Animals</h1>
-            <AnimalForm />
+            <AnimalForm onAddAnimal={onAddAnimal}/>
             <div id="animal_list">
                 {animalList}
             </div>

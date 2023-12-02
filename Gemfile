@@ -49,4 +49,5 @@ end
 gem "active_model_serializers", "~> 0.10.14"
 
 
-gem "azure-storage", require: false
+gem "azure-storage-blob", "~> 2.0", require: false
+

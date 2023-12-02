@@ -11,6 +11,7 @@ function AnimalLine ({animal}) {
         <h6>Age: {animal.age}</h6>
         <h6>Primary Color: {animal.color_primary}</h6>
         <h6>Secondary Color: {animal.color_secondary}</h6>
+        <image src={animal.image} />
     </div>)
 
 }
