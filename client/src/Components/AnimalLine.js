@@ -1,11 +1,13 @@
 import React, {useState} from "react"
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import {useNavigate} from "react-router-dom"
 
 
 function AnimalLine ({animal, onDeleteAnimal}) {
 
     const [errors, setErrors] = useState([])
+    const navigate = useNavigate();
 
     function handleDelete() {
         fetch(`/animals/${animal.id}`, {
@@ -20,11 +22,15 @@ function AnimalLine ({animal, onDeleteAnimal}) {
           })
       }
 
+      function handleClick () {
+        navigate(`/animals/${animal.id}`)
+      }
+
     return(
         <div id="animal_line">
             <Card border="secondary" style={{ width: '18rem' }}>
                 <Card.Header id="line_header">
-                    <Button variant="secondary" size="sm">
+                    <Button variant="secondary" size="sm" onClick={handleClick} >
                         Animal ID: {animal.id}
                     </Button>
                     <Button variant="danger" size="sm" onClick={handleDelete}>

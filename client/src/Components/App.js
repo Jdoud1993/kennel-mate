@@ -2,6 +2,7 @@ import React, {useEffect, useState, createContext} from "react"
 import {Routes, Route} from "react-router-dom"
 import Home from "./Home"
 import Animals from "./Animals";
+import AnimalDetail from "./AnimalDetail";
 import Clients from "./Clients";
 import Impound from "./Impound";
 import VirtualKennel from "./VirtualKennel";
@@ -52,6 +53,7 @@ if (!user) return <Login onLogin={setUser} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/impound" element={<Impound />} />
           <Route path="/virtual-kennel" element={<VirtualKennel />} />
+          <Route path="/animals/:id" element={<AnimalDetail animals={animals}/>} />
         </Routes>
       </div>
 
