@@ -35,6 +35,10 @@ useEffect(() => {
 function handleAddAnimal (newAnimal) {
   setAnimals([...animals, newAnimal])  
 }
+
+function handleDeleteAnimal (deletedAnimal) {
+  setAnimals(animals.filter((animal) => animal.id !== deletedAnimal.id))
+}
   
 if (!user) return <Login onLogin={setUser} />
   return (
@@ -44,7 +48,7 @@ if (!user) return <Login onLogin={setUser} />
       <div id="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/animals" element={<Animals animals={animals} onAddAnimal={handleAddAnimal} />} />
+          <Route path="/animals" element={<Animals animals={animals} onAddAnimal={handleAddAnimal} onDeleteAnimal={handleDeleteAnimal} />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/impound" element={<Impound />} />
           <Route path="/virtual-kennel" element={<VirtualKennel />} />

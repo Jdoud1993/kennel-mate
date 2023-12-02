@@ -6,8 +6,17 @@
   color: white;
 }
 
-#animal_line {
+#animal_list {
   display: flex;
-  justify-content: space-between;
-  border-style: solid;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#animal_line {
+  padding: 10px;
+}
+
+#line_header {
+  display: flex;
+  justify-content: space-around;
 }
