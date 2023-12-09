@@ -31,7 +31,7 @@ class AnimalsController < ApplicationController
             animal_with_image = animal.as_json.merge(image: url_for(animal.image))
             render json: animal_with_image  
         else
-            render json: {errors: user.errors.full_messages}, status: :unprocessable_entity 
+            render json: {errors: "Unable to add. Please complete all fields."}, status: :unprocessable_entity 
         end
     end
 

@@ -49,11 +49,11 @@ if (!user) return <Login onLogin={setUser} />
       <div id="main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/animals" element={<Animals animals={animals} onAddAnimal={handleAddAnimal} onDeleteAnimal={handleDeleteAnimal} />} />
+          <Route path="/animals" element={<Animals animals={animals} onAddAnimal={handleAddAnimal}  />} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/impound" element={<Impound />} />
           <Route path="/virtual-kennel" element={<VirtualKennel />} />
-          <Route path="/animals/:id" element={<AnimalDetail animals={animals}/>} />
+          <Route path="/animals/:id" element={<AnimalDetail animals={animals} onDeleteAnimal={handleDeleteAnimal}/>} />
         </Routes>
       </div>
 

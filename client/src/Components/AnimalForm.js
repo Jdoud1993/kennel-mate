@@ -3,7 +3,8 @@ import Form from "react-bootstrap/Form"
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Button from 'react-bootstrap/Button';
 
-function AnimalForm({onAddAnimal}) {
+
+function AnimalForm({onAddAnimal, handleClose}) {
     const [errors, setErrors] = useState([])
     const [rawData, setRawData] = useState({
         name:"",
@@ -67,6 +68,7 @@ function AnimalForm({onAddAnimal}) {
                         image:{}
                 
                     })
+                    handleClose()
                 })
             } else {
                 res.json().then((err) => setErrors(err.errors))
@@ -76,7 +78,7 @@ function AnimalForm({onAddAnimal}) {
 
     return(
         <div id="animal-form">
-            <h1>Animal Form</h1>
+            <h1>Animal</h1>
             <Form onSubmit={handleSubmit}>
                 <FloatingLabel
                     controlId="floatingInput"
@@ -100,11 +102,13 @@ function AnimalForm({onAddAnimal}) {
                     <option value="Dog">Dog</option>
                     <option value="Cat">Cat</option>
                 </Form.Select>
+                <br/>
                 <Form.Select aria-label="Default select example" size="sm" name="sex" value={rawData.sex} onChange={handleChange}>
                     <option>Select Sex</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </Form.Select>
+                <br/>
                 <FloatingLabel
                     controlId="floatingInput"
                     label="Age"
