@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 import Modal from 'react-bootstrap/Modal'
 import AnimalUpdate from "./AnimalUpdate";
 
-function AnimalDetail ({animals, onDeleteAnimal}) {
+function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
 
     const [errors, setErrors] = useState([])
     const [animal, setAnimal] = useState(null);
@@ -51,7 +51,7 @@ function AnimalDetail ({animals, onDeleteAnimal}) {
                     <Modal.Title>Please Complete All Fields Below</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AnimalUpdate />
+                    <AnimalUpdate animal={animal} onUpdateAnimal={onUpdateAnimal} onClose={handleClose} />
                 </Modal.Body>
                 <Modal.Footer>
 

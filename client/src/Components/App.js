@@ -40,6 +40,13 @@ function handleAddAnimal (newAnimal) {
 function handleDeleteAnimal (deletedAnimal) {
   setAnimals(animals.filter((animal) => animal.id !== deletedAnimal.id))
 }
+
+function handleUpdateAnimal(updatedAnimal) {
+  const index = animals.indexOf(animals.find((animal)=> animal.id === updatedAnimal.id))
+  const updatedAnimals = [...animals]
+  updatedAnimals[index] = updatedAnimal
+  setAnimals(updatedAnimals)
+}
   
 if (!user) return <Login onLogin={setUser} />
   return (
@@ -53,7 +60,7 @@ if (!user) return <Login onLogin={setUser} />
           <Route path="/clients" element={<Clients />} />
           <Route path="/impound" element={<Impound />} />
           <Route path="/virtual-kennel" element={<VirtualKennel />} />
-          <Route path="/animals/:id" element={<AnimalDetail animals={animals} onDeleteAnimal={handleDeleteAnimal}/>} />
+          <Route path="/animals/:id" element={<AnimalDetail animals={animals} onDeleteAnimal={handleDeleteAnimal} onUpdateAnimal={handleUpdateAnimal}/>} />
         </Routes>
       </div>
 
