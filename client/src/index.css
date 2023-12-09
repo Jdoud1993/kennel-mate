@@ -1,5 +1,7 @@
 #main {
   padding-top: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 #user_name {
@@ -54,3 +56,10 @@
   border-radius: 5px;
 }
 
+#animal-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px;
+  width: 1250px;
+}

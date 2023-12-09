@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import {useNavigate} from "react-router-dom";
+import Modal from 'react-bootstrap/Modal'
+import AnimalUpdate from "./AnimalUpdate";
 
 function AnimalDetail ({animals, onDeleteAnimal}) {
 
@@ -11,6 +13,11 @@ function AnimalDetail ({animals, onDeleteAnimal}) {
     const [animal, setAnimal] = useState(null);
     const {id} = useParams()
     const navigate = useNavigate();
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         const selectedAnimal = animals.find((animal) => animal.id == id)
@@ -37,9 +44,22 @@ function AnimalDetail ({animals, onDeleteAnimal}) {
 
     if (!animal) return <h2>Loading...</h2>
     return(
-        <>
-            <Card border="primary">
-                <Card.Img variant="top" src={animal.image} style={{ width: "1000px" }} />
+        <div id = "animal-detail">
+
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Please Complete All Fields Below</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <AnimalUpdate />
+                </Modal.Body>
+                <Modal.Footer>
+
+                </Modal.Footer>
+            </Modal>
+
+            <Card border="secondary">
+                <Card.Img id="detail-img" variant="top" src={animal.image}/>
                 <Card.Body>
                     <Card.Text className="non-urgent">
                         Name: {animal.name}
@@ -53,14 +73,24 @@ function AnimalDetail ({animals, onDeleteAnimal}) {
                     <Card.Text className="non-urgent">
                         Sex: {animal.sex}
                     </Card.Text>
+                    <Card.Text className="non-urgent">
+                        Age: {animal.age}
+                    </Card.Text>
+                    <Card.Text className="non-urgent">
+                        Primary Color: {animal.color_primary}
+                    </Card.Text>
+                    <Card.Text className="non-urgent">
+                        Secondary Color: {animal.color_secondary}
+                    </Card.Text>
+                    <Button variant="secondary" onClick={handleShow}>Update Animal Information</Button>
                 </Card.Body>
             </Card>
-            <Card border="primary" style={{ marginBottom: "25px", marginTop: "25px" }}>
+            <Card border="secondary" style={{ marginBottom: "25px", marginTop: "25px" }}>
                 <Card.Body>
                     <h6>Impound Link</h6>
                 </Card.Body>
             </Card>
-            <Card border="primary" style={{ marginBottom: "50px" }}>
+            <Card border="secondary" style={{ marginBottom: "50px" }}>
                 <Card.Body>
                     <Card.Text className="non-urgent">
                         Impounds:
@@ -74,7 +104,7 @@ function AnimalDetail ({animals, onDeleteAnimal}) {
                 </Button>
                 <h5 style={{ color: "red" }}>{errors}</h5>
             </Card>
-        </>
+        </ div>
     )
 }
 
