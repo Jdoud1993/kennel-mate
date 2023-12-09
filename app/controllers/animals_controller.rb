@@ -47,10 +47,14 @@ class AnimalsController < ApplicationController
 
     def update
         animal = Animal.find_by(id: params[:id])
-        if animal
+        if animal.valid? && animal.image.attached?
+            animal.update(animal_params)
+            animal_with_image = animal.as_json.merge(image: url_for(animal.image))
+            render json: animal_with_image
+        elsif animal.valid?
             animal.update(animal_params)
             render json: animal
-        else 
+        else
             render json: {errors: "Animal not found."}, status: :not_found
         end
     end
