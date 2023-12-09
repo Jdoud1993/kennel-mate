@@ -37,7 +37,7 @@ function Animals ({animals, onAddAnimal}) {
                 animal.name.toLowerCase().includes(sAnimal.name.toLowerCase()) &&
                 animal.breed.toLowerCase().includes(sAnimal.breed.toLowerCase()) &&
                 animal.species.toLowerCase().includes(sAnimal.species.toLowerCase()) &&
-                animal.sex.toLowerCase().includes(sAnimal.sex.toLowerCase()) &&
+                animal.sex.match(sAnimal.sex)  &&
                 animal.age.toLowerCase().includes(sAnimal.age.toLowerCase()) &&
                 animal.color_primary.toLowerCase().includes(sAnimal.color_primary.toLowerCase()) &&
                 animal.color_secondary.toLowerCase().includes(sAnimal.color_secondary.toLowerCase())) {
