@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 
 
-function AnimalUpdate ({animal, onUpdateAnimal, onClose}) {
+function AnimalUpdate ({animal, onUpdateAnimal, onCloseUpdate}) {
 
     const [errors, setErrors] = useState([])
     const [uAnimal, setUAnimal] = useState({
@@ -43,7 +43,7 @@ function AnimalUpdate ({animal, onUpdateAnimal, onClose}) {
             if(res.ok) {
                 res.json().then((data) => {
                     onUpdateAnimal(data)
-                    onClose()
+                    onCloseUpdate()
                 })
             } else {
                 res.json().then((err) => setErrors(err.errors))

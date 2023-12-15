@@ -14,10 +14,10 @@ function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
     const {id} = useParams()
     const navigate = useNavigate();
 
-    const [show, setShow] = useState(false);
+    const [showUpdate, setShowUpdate] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleCloseUpdate = () => setShowUpdate(false);
+    const handleShowUpdate = () => setShowUpdate(true);
 
     useEffect(() => {
         const selectedAnimal = animals.find((animal) => animal.id == id)
@@ -46,12 +46,12 @@ function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
     return(
         <div id = "animal-detail">
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={showUpdate} onHide={handleCloseUpdate}>
                 <Modal.Header closeButton>
                     <Modal.Title>Please Complete All Fields Below</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <AnimalUpdate animal={animal} onUpdateAnimal={onUpdateAnimal} onClose={handleClose} />
+                    <AnimalUpdate animal={animal} onUpdateAnimal={onUpdateAnimal} onCloseUpdate={handleCloseUpdate} />
                 </Modal.Body>
                 <Modal.Footer>
 
@@ -82,7 +82,7 @@ function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
                     <Card.Text className="non-urgent">
                         Secondary Color: {animal.color_secondary}
                     </Card.Text>
-                    <Button variant="secondary" onClick={handleShow}>Update Animal Information</Button>
+                    <Button variant="secondary" onClick={handleShowUpdate}>Update Animal Information</Button>
                 </Card.Body>
             </Card>
             <Card border="secondary" style={{ marginBottom: "25px", marginTop: "25px" }}>
