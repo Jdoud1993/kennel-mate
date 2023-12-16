@@ -21,6 +21,7 @@ function Animals ({animals, onAddAnimal}) {
         color_secondary:"",
     })
 
+
     const {name, breed, species, sex, age, color_primary, color_secondary} = sAnimal
 
     const [show, setShow] = useState(false);
