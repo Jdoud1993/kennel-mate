@@ -74,3 +74,15 @@
   align-items: center;
 }
 
+#client_list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+#client-card {
+  display: flex;
+  justify-content: space-around;
+}
+

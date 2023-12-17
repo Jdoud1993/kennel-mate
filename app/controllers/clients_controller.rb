@@ -4,6 +4,15 @@ class ClientsController < ApplicationController
         render json: Client.all
     end
 
+    def create
+        client = Client.create(client_params)
+        if client
+            render json: client
+        else
+            render json: {errors: "Unable to process Client."}, status: :unprocessable_entity 
+        end
+    end
+
     private
 
     def client_params

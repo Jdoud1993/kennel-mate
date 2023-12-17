@@ -2,13 +2,17 @@ import React, {useState} from "react";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import ClientForm from "./ClientForm";
+import ListGroup from 'react-bootstrap/ListGroup';
+import ClientLine from "./ClientLine"
 
-function Clients () {
+function Clients ({clients, onAddClient}) {
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    let clientList = clients.map((client) => <ClientLine key={client.id} client={client}/>)
 
     return(
         <div id="client-disp">
@@ -25,13 +29,18 @@ function Clients () {
                         <Modal.Title>Please Complete All Fields Below</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <ClientForm handleClose={handleClose}/>
+                        <ClientForm handleClose={handleClose} onAddClient={onAddClient}/>
                     </Modal.Body>
                     <Modal.Footer>
 
                     </Modal.Footer>
                 </Modal>
 
+            </div>
+            <div id="client_list">
+                <ListGroup>
+                    {clientList}
+                </ListGroup>
             </div>
         </div>
     )

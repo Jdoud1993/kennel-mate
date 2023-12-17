@@ -47,7 +47,7 @@ function handleAddAnimal (newAnimal) {
 }
 
 function handleAddClient (newClient) {
-  setAnimals([...clients, newClient])  
+  setClients([...clients, newClient])  
 }
 
 function handleDeleteAnimal (deletedAnimal) {

@@ -26,6 +26,9 @@ function ClientForm ({onAddClient, handleClose}) {
         e.preventDefault()
         fetch("/clients", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(clientData)
         })
         .then((res) => {

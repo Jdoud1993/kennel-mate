@@ -6,36 +6,36 @@ puts "Seeding...."
 # )
 # puts "Seeding....User Completed"
 
-Animal.create(
-    name: "Uknown",
-    species: "Dog",
-    breed: "Labrador Retriever",
-    sex: "Male",
-    age: "2 yr",
-    color_primary: "Black",
-    color_secondary: "None"
-)
+# Animal.create(
+#     name: "Uknown",
+#     species: "Dog",
+#     breed: "Labrador Retriever",
+#     sex: "Male",
+#     age: "2 yr",
+#     color_primary: "Black",
+#     color_secondary: "None"
+# )
 
-Animal.create(
-    name: "Chidori",
-    species: "Cat",
-    breed: "Siamese",
-    sex: "Male",
-    age: "6 yr",
-    color_primary: "Seal Pt",
-    color_secondary: "White"
-)
+# Animal.create(
+#     name: "Chidori",
+#     species: "Cat",
+#     breed: "Siamese",
+#     sex: "Male",
+#     age: "6 yr",
+#     color_primary: "Seal Pt",
+#     color_secondary: "White"
+# )
 
-Animal.create(
-    name: "Onyxia",
-    species: "Dog",
-    breed: "Cocker Spaniel",
-    sex: "Female",
-    age: "8 yr",
-    color_primary: "Black",
-    color_secondary: "None"
-)
-puts "Seeding....Animals Completed"
+# Animal.create(
+#     name: "Onyxia",
+#     species: "Dog",
+#     breed: "Cocker Spaniel",
+#     sex: "Female",
+#     age: "8 yr",
+#     color_primary: "Black",
+#     color_secondary: "None"
+# )
+# puts "Seeding....Animals Completed"
 
 Client.create(
     name_first: "Kenneth",
@@ -81,31 +81,31 @@ until small == 6 do
     small += 1
 end
 puts "Seeding....Kennels Completed"
-Impound.create(
-    animal_id: 1,
-    client_id: 2,
-    kennel_id: 5,
-    address_found: "2400 Foxtrot Street, Lancaster Ca 93536",
-    status: "Stray Wait",
-    user_id: 1,
-)
+# Impound.create(
+#     animal_id: 1,
+#     client_id: 2,
+#     kennel_id: 5,
+#     address_found: "2400 Foxtrot Street, Lancaster Ca 93536",
+#     status: "Stray Wait",
+#     user_id: 1,
+# )
 
-Impound.create(
-    animal_id: 2,
-    client_id: 1,
-    kennel_id: 11,
-    address_found: "600 Base Street, Lancaster Ca 93536",
-    status: "Stray Wait",
-    user_id: 1,
-)
+# Impound.create(
+#     animal_id: 2,
+#     client_id: 1,
+#     kennel_id: 11,
+#     address_found: "600 Base Street, Lancaster Ca 93536",
+#     status: "Stray Wait",
+#     user_id: 1,
+# )
 
-Impound.create(
-    animal_id: 3,
-    client_id: 3,
-    kennel_id: 5,
-    address_found: "22000 Lakeview Avenue, Lancaster Ca 93534",
-    status: "Stray Wait",
-    user_id: 1,
-)
-puts "Seeding....Impounds Completed"
+# Impound.create(
+#     animal_id: 3,
+#     client_id: 3,
+#     kennel_id: 5,
+#     address_found: "22000 Lakeview Avenue, Lancaster Ca 93534",
+#     status: "Stray Wait",
+#     user_id: 1,
+# )
+# puts "Seeding....Impounds Completed"
 puts "✅ Done seeding!"
