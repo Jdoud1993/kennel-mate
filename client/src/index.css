@@ -93,3 +93,10 @@
   border-radius: 5px;
 }
 
+#client-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px;
+  width: 1250px;
+}

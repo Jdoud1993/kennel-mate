@@ -7,7 +7,8 @@ import Clients from "./Clients";
 import Impound from "./Impound";
 import VirtualKennel from "./VirtualKennel";
 import NavBar from "./Navbar";
-import Login from "./Login"
+import Login from "./Login";
+import ClientDetail from "./ClientDetail";
 
 export const userContext = createContext(null)
 
@@ -54,11 +55,22 @@ function handleDeleteAnimal (deletedAnimal) {
   setAnimals(animals.filter((animal) => animal.id !== deletedAnimal.id))
 }
 
+function handleDeleteClient (deletedClient) {
+  setClients(clients.filter((client) => client.id !== deletedClient.id))
+}
+
 function handleUpdateAnimal(updatedAnimal) {
   const index = animals.indexOf(animals.find((animal)=> animal.id === updatedAnimal.id))
   const updatedAnimals = [...animals]
   updatedAnimals[index] = updatedAnimal
   setAnimals(updatedAnimals)
+}
+
+function handleUpdateClient(updatedClient) {
+  const index = clients.indexOf(clients.find((client)=> client.id === updatedClient.id))
+  const updatedClients = [...clients]
+  updatedClients[index] = updatedClient
+  setClients(updatedClients)
 }
   
 if (!user) return <Login onLogin={setUser} />
@@ -74,6 +86,7 @@ if (!user) return <Login onLogin={setUser} />
           <Route path="/impound" element={<Impound />} />
           <Route path="/virtual-kennel" element={<VirtualKennel />} />
           <Route path="/animals/:id" element={<AnimalDetail animals={animals} onDeleteAnimal={handleDeleteAnimal} onUpdateAnimal={handleUpdateAnimal}/>} />
+          <Route path="/clients/:id" element={<ClientDetail clients={clients} onDeleteClient={handleDeleteClient} onUpdateClient={handleUpdateClient}/>} />
         </Routes>
       </div>
 

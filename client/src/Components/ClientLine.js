@@ -1,11 +1,21 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import {useNavigate} from "react-router-dom";
 
 function ClientLine ({client}) {
 
+  const navigate = useNavigate();
+
+ 
+
+  function handleClick () {
+    navigate(`/clients/${client.id}`)
+  }
+
+
     return(
-        <ListGroup.Item action variant="dark" >
+        <ListGroup.Item action variant="dark" onClick={handleClick}>
         <Card border="secondary">
           <Card.Body id="client-card">
             <Card.Title>Client ID: {client.id}</Card.Title>
