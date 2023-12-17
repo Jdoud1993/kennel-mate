@@ -74,6 +74,9 @@ function ClientForm ({onAddClient, handleClose}) {
                     className="mb-3"
                 >
                     <Form.Control name="phone_number" type="text" placeholder="Phone Number" value={clientData.phone_number} onChange={handleChange} />
+                    <Form.Text id="phone-number-help-text" muted>
+                        e.g. (000) 000-0000
+                    </Form.Text>
                 </FloatingLabel>
                 <FloatingLabel
                     controlId="floatingInput"
@@ -81,6 +84,9 @@ function ClientForm ({onAddClient, handleClose}) {
                     className="mb-3"
                 >
                     <Form.Control name="address" type="text" placeholder="Address" value={clientData.address} onChange={handleChange} />
+                    <Form.Text id="address-help-text" muted>
+                        e.g. 1111 Example Street, Example City, EX 00000 
+                    </Form.Text>
                 </FloatingLabel>
                 <FloatingLabel
                     controlId="floatingInput"
@@ -88,6 +94,9 @@ function ClientForm ({onAddClient, handleClose}) {
                     className="mb-3"
                 >
                     <Form.Control name="email" type="text" placeholder="Email" value={clientData.email} onChange={handleChange} />
+                    <Form.Text id="email-help-text" muted>
+                        e.g. exampleemail@example.com
+                    </Form.Text>
                 </FloatingLabel>
                 
                 <Button variant="secondary" type="submit">

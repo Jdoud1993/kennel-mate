@@ -86,3 +86,10 @@
   justify-content: space-around;
 }
 
+#client-search {
+  border-style: solid;
+  padding: 10px;
+  border-color: gray;
+  border-radius: 5px;
+}
+
