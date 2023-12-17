@@ -17,6 +17,8 @@ function App() {
   const [user, setUser] = useState(null)
   const [animals, setAnimals] = useState([])
   const [clients, setClients] = useState([])
+  const [kennels, setKennels] = useState([])
+  const [impounds, setImpounds] = useState([])
 
   useEffect(()=>{
     fetch("/authorize")
@@ -43,12 +45,32 @@ useEffect(() => {
   })
 }, [])
 
+useEffect(() => {
+  fetch("/kennels")
+  .then(res => res.json())
+  .then(data => {
+      setKennels(data)
+  })
+}, [])
+
+useEffect(() => {
+  fetch("/impounds")
+  .then(res => res.json())
+  .then(data => {
+      setImpounds(data)
+  })
+}, [])
+
 function handleAddAnimal (newAnimal) {
   setAnimals([...animals, newAnimal])  
 }
 
 function handleAddClient (newClient) {
   setClients([...clients, newClient])  
+}
+
+function handleAddImpound (newImpound) {
+  setImpounds([...impounds, newImpound])  
 }
 
 function handleDeleteAnimal (deletedAnimal) {
@@ -83,7 +105,7 @@ if (!user) return <Login onLogin={setUser} />
           <Route path="/" element={<Home />} />
           <Route path="/animals" element={<Animals animals={animals} onAddAnimal={handleAddAnimal}  />} />
           <Route path="/clients" element={<Clients clients={clients} onAddClient={handleAddClient} />} />
-          <Route path="/impound" element={<Impound />} />
+          <Route path="/impound" element={<Impound impounds={impounds} kennels={kennels} animals={animals} clients={clients}/>} onAddImpound={handleAddImpound}/>
           <Route path="/virtual-kennel" element={<VirtualKennel />} />
           <Route path="/animals/:id" element={<AnimalDetail animals={animals} onDeleteAnimal={handleDeleteAnimal} onUpdateAnimal={handleUpdateAnimal}/>} />
           <Route path="/clients/:id" element={<ClientDetail clients={clients} onDeleteClient={handleDeleteClient} onUpdateClient={handleUpdateClient}/>} />
