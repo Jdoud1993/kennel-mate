@@ -74,6 +74,7 @@ function Animals ({animals, onAddAnimal}) {
                 </Modal>
 
                 <br/>
+                <h2>Please use the search bar below to find the animal you are looking for. Click on the animal bar for more details or to update/impound an animal.</h2>
                 <AnimalSearch onSetSAnimal={setSAnimal} sAnimal={sAnimal}/>
                 <br />
                 <h1 id="animals-title">Our Animals</h1>

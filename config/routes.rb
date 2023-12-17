@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   
   resources :animals, only: [:index, :show, :create, :destroy, :update]
+  resources :clients, only: [:index, :create, :destroy, :update]
 
-  patch "/animals/:id", to: "animals#update_photo"
+  patch "/update_photo/:id", to: "animals#update_photo"
 
   post "/signup", to: "users#create"
 

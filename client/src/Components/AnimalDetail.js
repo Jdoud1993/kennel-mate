@@ -6,6 +6,9 @@ import Button from 'react-bootstrap/Button';
 import {useNavigate} from "react-router-dom";
 import Modal from 'react-bootstrap/Modal'
 import AnimalUpdate from "./AnimalUpdate";
+import UpdatePhoto from "./UpdatePhoto";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
 
@@ -15,9 +18,13 @@ function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
     const navigate = useNavigate();
 
     const [showUpdate, setShowUpdate] = useState(false);
+    const [showPhoto, setShowPhoto] = useState(false)
 
     const handleCloseUpdate = () => setShowUpdate(false);
     const handleShowUpdate = () => setShowUpdate(true);
+
+    const handleClosePhoto = () => setShowPhoto(false);
+    const handleShowPhoto = () => setShowPhoto(true);
 
     useEffect(() => {
         const selectedAnimal = animals.find((animal) => animal.id == id)
@@ -58,6 +65,18 @@ function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
                 </Modal.Footer>
             </Modal>
 
+            <Modal show={showPhoto} onHide={handleClosePhoto}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Please select an image file to upload or replace animal photograph.</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <UpdatePhoto animal={animal} onUpdateAnimal={onUpdateAnimal} onClosePhoto={handleClosePhoto}/>
+                </Modal.Body>
+                <Modal.Footer>
+
+                </Modal.Footer>
+            </Modal>
+
             <Card border="secondary">
                 <Card.Img id="detail-img" variant="top" src={animal.image}/>
                 <Card.Body>
@@ -82,7 +101,14 @@ function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
                     <Card.Text className="non-urgent">
                         Secondary Color: {animal.color_secondary}
                     </Card.Text>
-                    <Button variant="secondary" onClick={handleShowUpdate}>Update Animal Information</Button>
+                    <Row>
+                        <Col>
+                            <Button variant="secondary" onClick={handleShowUpdate}>Update Animal Information</Button>
+                        </Col>
+                        <Col>
+                            <Button variant="secondary" onClick={handleShowPhoto}>Upload Photograph</Button>
+                        </Col>
+                    </Row>
                 </Card.Body>
             </Card>
             <Card border="secondary" style={{ marginBottom: "25px", marginTop: "25px" }}>
@@ -100,7 +126,7 @@ function AnimalDetail ({animals, onDeleteAnimal, onUpdateAnimal}) {
                     </ListGroup>
                 </Card.Body>
                 <Button variant="danger" size="sm" onClick={handleDelete} style={{margin: "10px"}}>
-                    Delete
+                    Delete Animal
                 </Button>
                 <h5 style={{ color: "red" }}>{errors}</h5>
             </Card>
