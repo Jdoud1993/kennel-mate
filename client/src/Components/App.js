@@ -81,6 +81,11 @@ function handleDeleteClient (deletedClient) {
   setClients(clients.filter((client) => client.id !== deletedClient.id))
 }
 
+function handleDeleteImpound (deletedImpound) {
+  setImpounds(impounds.filter((impound) => impound.id !== deletedImpound.id))
+}
+
+
 function handleUpdateAnimal(updatedAnimal) {
   const index = animals.indexOf(animals.find((animal)=> animal.id === updatedAnimal.id))
   const updatedAnimals = [...animals]
@@ -105,8 +110,8 @@ if (!user) return <Login onLogin={setUser} />
           <Route path="/" element={<Home />} />
           <Route path="/animals" element={<Animals animals={animals} onAddAnimal={handleAddAnimal}  />} />
           <Route path="/clients" element={<Clients clients={clients} onAddClient={handleAddClient} />} />
-          <Route path="/impound" element={<Impound impounds={impounds} kennels={kennels} animals={animals} clients={clients}/>} onAddImpound={handleAddImpound}/>
-          <Route path="/virtual-kennel" element={<VirtualKennel />} />
+          <Route path="/impound" element={<Impound impounds={impounds} kennels={kennels} animals={animals} clients={clients} onAddImpound={handleAddImpound} onDeleteImpound={handleDeleteImpound}/>} />
+          <Route path="/virtual-kennel" element={<VirtualKennel kennels={kennels}/>} />
           <Route path="/animals/:id" element={<AnimalDetail animals={animals} onDeleteAnimal={handleDeleteAnimal} onUpdateAnimal={handleUpdateAnimal}/>} />
           <Route path="/clients/:id" element={<ClientDetail clients={clients} onDeleteClient={handleDeleteClient} onUpdateClient={handleUpdateClient}/>} />
         </Routes>

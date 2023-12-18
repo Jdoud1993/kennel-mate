@@ -9,7 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
-function Impound ({kennels, animals, clients, impounds, onAddImpound}) {
+function Impound ({kennels, animals, clients, impounds, onAddImpound, onDeleteImpound}) {
 
 
     const [errors, setErrors] = useState([])
@@ -26,7 +26,7 @@ function Impound ({kennels, animals, clients, impounds, onAddImpound}) {
     let clientOptions = clients.map((client) => <option id={client.id} value={client.id}>ID: {client.id}, Name: {client.name_first} {client.name_last}</option>)
 
     console.log(impounds)
-    const impoundList = impounds.map((impound) => <ImpoundLine key={impound.id} impound={impound}/>)
+    const impoundList = impounds.map((impound) => <ImpoundLine key={impound.id} impound={impound} onDeleteImpound={onDeleteImpound}/>)
 
     function handleChange(e) {
         const name = e.target.name;

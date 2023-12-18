@@ -1,4 +1,5 @@
 class ImpoundsController < ApplicationController
+    skip_before_action :authorized, only: :index
 
     def index
         render json: Impound.all
@@ -13,6 +14,16 @@ class ImpoundsController < ApplicationController
             render json: {errors: user.errors.full_messages}, status: :unprocessable_entity 
         end
     end  
+
+    def destroy
+        impound = Impound.find_by(id: params[:id])
+        if impound
+            impound.destroy
+            render json: {}
+        else
+            render json: {errors: "Impound not found."}, status: :not_found
+        end
+    end
 
     private
 
