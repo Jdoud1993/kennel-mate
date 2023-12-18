@@ -87,11 +87,6 @@ function ClientDetail ({clients, onDeleteClient, onUpdateClient}) {
                     <h5 style={{ color: "red" }}>{errors}</h5>
                 </Card.Body>
             </Card>
-            <Card border="secondary" style={{ marginBottom: "25px", marginTop: "25px" }}>
-                <Card.Body>
-                    <h6>Impounded Animals:</h6>
-                </Card.Body>
-            </Card>
         </ div>
     )
 }

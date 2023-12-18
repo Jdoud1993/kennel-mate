@@ -70,7 +70,15 @@ function handleAddClient (newClient) {
 }
 
 function handleAddImpound (newImpound) {
-  setImpounds([...impounds, newImpound])  
+  
+  setImpounds([...impounds, newImpound])
+  const kennelsClone = [...kennels]
+  const indexK = kennels.indexOf(kennels.find((kennel)=> kennel.id === newImpound.kennel.id))
+  const newAnimal = newImpound.animal
+  const kennelClone = kennels[indexK]
+  kennelClone.animals = [...kennelClone.animals, newAnimal]
+  kennelsClone[indexK] = kennelClone 
+  setKennels(kennelsClone)
 }
 
 function handleDeleteAnimal (deletedAnimal) {
@@ -83,6 +91,12 @@ function handleDeleteClient (deletedClient) {
 
 function handleDeleteImpound (deletedImpound) {
   setImpounds(impounds.filter((impound) => impound.id !== deletedImpound.id))
+  const kennelsClone = [...kennels]
+  const indexK = kennels.indexOf(kennels.find((kennel)=> kennel.id === deletedImpound.kennel.id))
+  const kennelClone = kennels[indexK]
+  kennelClone.animals = [...kennelClone.animals].filter((animal) => animal.id !== deletedImpound.animal.id)
+  kennelsClone[indexK] = kennelClone 
+  setKennels(kennelsClone)
 }
 
 

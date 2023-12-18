@@ -25,7 +25,6 @@ function Impound ({kennels, animals, clients, impounds, onAddImpound, onDeleteIm
     let animalOptions = animals.map((animal) => <option id={animal.id} value={animal.id}>ID: {animal.id}, Name: {animal.name}, Species: {animal.species}, Breed: {animal.breed}</option>)
     let clientOptions = clients.map((client) => <option id={client.id} value={client.id}>ID: {client.id}, Name: {client.name_first} {client.name_last}</option>)
 
-    console.log(impounds)
     const impoundList = impounds.map((impound) => <ImpoundLine key={impound.id} impound={impound} onDeleteImpound={onDeleteImpound}/>)
 
     function handleChange(e) {
@@ -49,7 +48,6 @@ function Impound ({kennels, animals, clients, impounds, onAddImpound, onDeleteIm
     
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(impoundData)
         fetch("/impounds", {
             method: "POST",
             headers: {

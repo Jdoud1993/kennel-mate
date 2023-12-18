@@ -106,3 +106,23 @@
   justify-content: space-around;
 }
 
+#virtual-kennel {
+  width: 70%;
+  
+}
+
+#large-kennels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#small-kennels {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+
