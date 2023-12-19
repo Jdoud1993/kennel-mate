@@ -4,6 +4,13 @@
   justify-content: center;
 }
 
+#home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
 #user_name {
   color: white;
   padding-right: 15px;
